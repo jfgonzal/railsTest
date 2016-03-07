@@ -1,0 +1,39 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<%# Comment %>
+
+<%= "Count to 10" %>
+<br/>
+<% 11.times do |i|  %>
+  <%= i %>
+<% end %>
+
+<br/>
+
+<% if(params.has_key?(:id) &&
+      params.has_key?(:random)) %><br/>
+    <%= "ID : #{params[:id]}" %><br/>
+    <%= "RANDOM :  #{params[:random]}" %><br/>
+  <%end%>
+
+
+
+<br/>
+
+<%
+
+  a = "7".to_i
+
+  puts case a
+         when 1..5
+%><%="It's between 1 and 5"%><%
+         when 6
+%><%="It's 6"%><%
+         when String
+%><%="You passed a string"%><%
+         else
+%><%="You gave me #{a} -- I have no idea what to do with that."%><%
+       end
+  %>
+
