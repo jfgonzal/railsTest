@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Myapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title> <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
-
+<div id="wrapper">
+<header>
+  <%= link_to image_tag("bridge.jpg", alt: "Cool Bridge", :width => 140),
+              {:controller => 'pages', :action => 'home'},
+              {:class => 'websiteLogo'} %>
+  <%= link_to 'Rails Test', {:controller => 'pages', :action => 'home'},
+              {:class => 'websiteTitle'}%>
+<nav id="horizNav">
+  <p>
+    <%= link_to 'Home', {:controller => 'pages', :action => 'home'} %>
+    <%= link_to 'About', {:controller => 'pages', :action => 'about'} %>
+    <%= link_to 'Directions', {:controller => 'pages', :action => 'directions'} %>
+    <%= link_to 'Articles', {:controller => 'articles', :action => 'index'} %>
+    <%= link_to 'Users', {:controller => 'users', :action => 'index'} %>
+  </p>
+</nav>
+</header>
+  <main id="content">
+  <%= yield %>
+  </main>
+</div> <!-- End of Wrapper -->
 </body>
 </html>
